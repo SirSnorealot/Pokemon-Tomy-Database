@@ -1,0 +1,65 @@
+name: Missing toy request
+description: Report a missing toy (figure/variant/pose) to be added to the database
+labels: ["missing-toy"]
+title: "Missing toy: <pokemon name> - <toy id suggestion if known>"
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for helping improve the database! Please fill out as much as you can.
+
+  - type: input
+    id: pokemon
+    attributes:
+      label: Pokémon name
+      description: The Pokémon this toy belongs to (e.g., bulbasaur)
+      placeholder: e.g., bulbasaur
+    validations:
+      required: true
+
+  - type: input
+    id: pokedex_id
+    attributes:
+      label: Pokédex ID (number)
+      description: National Pokédex number (e.g., 1 for Bulbasaur). If unknown, leave blank.
+      placeholder: e.g., 1
+    validations:
+      required: false
+
+  - type: input
+    id: toy_id
+    attributes:
+      label: Suggested toy ID (optional)
+      description: Use the format <pokedex>_<variant> (e.g., 1_9). We'll help pick the next available if unsure.
+      placeholder: e.g., 1_9
+    validations:
+      required: false
+
+  - type: textarea
+    id: notes
+    attributes:
+      label: Notes / description
+      description: Provide any identifying info (pose, finish, color tone, series, region, year, manufacturer marks, etc.)
+      placeholder: e.g., Bulbasaur clear glitter Tomy variant from 1998
+    validations:
+      required: true
+
+  - type: textarea
+    id: images
+    attributes:
+      label: Image links
+      description: Links to photos of the toy. If you will add local images in a PR, mention planned filenames.
+      placeholder: One URL per line
+      render: bash
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Checklist
+      options:
+        - label: I searched existing issues to avoid duplicates
+          required: true
+        - label: I verified this toy isn't already listed under the Pokémon's toys
+          required: true

@@ -1,0 +1,60 @@
+name: Problem with existing toy
+description: Report incorrect info, wrong images, or other issues with an existing toy entry
+labels: ["bug", "data-fix"]
+title: "Fix: <pokemon name> <toy_id>"
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting an issue with the current data.
+
+  - type: input
+    id: pokemon
+    attributes:
+      label: Pokémon name
+      placeholder: e.g., bulbasaur
+    validations:
+      required: true
+
+  - type: input
+    id: toy_id
+    attributes:
+      label: Toy ID
+      description: Use the existing toy id like 1_3
+      placeholder: e.g., 1_3
+    validations:
+      required: true
+
+  - type: textarea
+    id: issue
+    attributes:
+      label: What’s wrong?
+      description: Describe the problem (typo, wrong notes, wrong images, missing images, incorrect folder name, etc.)
+    validations:
+      required: true
+
+  - type: textarea
+    id: suggestion
+    attributes:
+      label: Suggested correction
+      description: If you know what the data should be, list the corrected values or filenames.
+    validations:
+      required: false
+
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence / references
+      description: Optional links or photos that support the correction.
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Checklist
+      options:
+        - label: I searched existing issues to avoid duplicates
+          required: true
+        - label: I confirmed the toy id exists in database.json
+          required: true
